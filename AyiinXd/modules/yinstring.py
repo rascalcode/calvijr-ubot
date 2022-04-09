@@ -46,7 +46,7 @@ async def _(event):
             await conv.send_message(code)
             audio = await conv.get_response()
             two_verif = await event.client.forward_messages(event.chat_id, audio)
-        if two_verif:
+        elif two_verif:
             await event.reply("Silahkan Reply Pesan Untuk Memasukkan Kode...")
             code = await event.get_reply_message()
             await conv.send_message(code)
@@ -76,7 +76,7 @@ async def _(event):
             await conv.send_message(code)
             audio = await conv.get_response()
             two_verif = await event.client.forward_messages(event.chat_id, audio)
-        if two_verif:
+        elif two_verif:
             await event.reply("Silahkan Reply Pesan Untuk Memasukkan Kode...")
             code = await event.get_reply_message()
             await conv.send_message(code)

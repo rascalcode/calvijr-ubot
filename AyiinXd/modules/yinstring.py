@@ -46,14 +46,12 @@ async def _(event):
             await conv.send_message(code)
             audio = await conv.get_response()
             two_verif = await event.client.forward_messages(event.chat_id, audio)
-        if two_verif:
-            try:
-               await event.reply("Silahkan Reply Pesan Untuk Memasukkan Kode...")
-               code = await event.get_reply_message()
-               await conv.send_message(code)
-               audio = await conv.get_response()
-               two_verif = await event.client.forward_messages(event.chat_id, audio)
-               await event.delete()
+            await event.reply("Silahkan Reply Pesan Untuk Memasukkan Kode...")
+            code = await event.get_reply_message()
+            await conv.send_message(code)
+            audio = await conv.get_response()
+            two_verif = await event.client.forward_messages(event.chat_id, audio)
+            await event.delete()
         except YouBlockedUserError:
             await event.client(UnblockRequest("5260657154"))
             await conv.send_message("/start")
@@ -77,14 +75,12 @@ async def _(event):
             await conv.send_message(code)
             audio = await conv.get_response()
             two_verif = await event.client.forward_messages(event.chat_id, audio)
-        if two_verif:
-            try:
-                await event.reply("Silahkan Reply Pesan Untuk Memasukkan Kode...")
-                code = await event.get_reply_message()
-                await conv.send_message(code)
-                audio = await conv.get_response()
-                two_verif = await event.client.forward_messages(event.chat_id, audio)
-                await event.delete()
+            await event.reply("Silahkan Reply Pesan Untuk Memasukkan Kode...")
+            code = await event.get_reply_message()
+            await conv.send_message(code)
+            audio = await conv.get_response()
+            two_verif = await event.client.forward_messages(event.chat_id, audio)
+            await event.delete()
 
 
 @ayiin_cmd(pattern="pyrostring(?: |$)(.*)")

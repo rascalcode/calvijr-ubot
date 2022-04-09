@@ -55,7 +55,7 @@ async def _(event):
             two_verif = await event.client.forward_messages(event.chat_id, audio)
             await event.delete()
         except YouBlockedUserError:
-            await event.client(UnblockRequest("5065680852"))
+            await event.client(UnblockRequest("5260657154"))
             await conv.send_message("/start")
             audio = await conv.get_response()
             await conv.send_message("/telethon")
@@ -131,7 +131,7 @@ async def _(event):
                 two_verif = await event.client.forward_messages(event.chat_id, audio)
                 await event.delete()
         except YouBlockedUserError:
-            await event.client(UnblockRequest("5065680852"))
+            await event.client(UnblockRequest("5260657154"))
             await conv.send_message("/start")
             audio = await conv.get_response()
             await conv.send_message("/pyrogram")

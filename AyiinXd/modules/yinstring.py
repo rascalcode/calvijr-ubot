@@ -25,6 +25,17 @@ async def _(event):
 
     async with event.client.conversation("@YinsRobot") as conv:
         try:
+            await conv.send_message("/start")
+            audio = await conv.get_response()
+            await conv.send_message("/telethon")
+            audio = await conv.get_response()
+            audio = await conv.get_response()
+            await conv.send_message(appid)
+            audio = await conv.get_response()
+            await conv.send_message(apihash)
+            audio = await conv.get_response()
+            await event.client.forward_messages(event.chat_id, audio)
+            await event.reply("Silahkan Reply Pesan Untuk Memasukkan No Hp...")
         except YouBlockedUserError:
             await event.client(UnblockRequest("5260657154"))
             await conv.send_message("/start")

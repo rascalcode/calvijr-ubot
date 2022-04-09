@@ -23,6 +23,7 @@ async def _(event):
         await event.edit("**Yang Benerlah Kentod Biar Bisa Bikin Bot!!!**")
         return
 
+    if appid == "":
     async with event.client.conversation("@YinsRobot") as conv:
         try:
             await conv.send_message("/start")
@@ -50,7 +51,7 @@ async def _(event):
             await event.client.forward_messages(event.chat_id, audio)
             await event.reply("Silahkan Reply Pesan Untuk Memasukkan No Hp...")
 
-    if appid == "no"
+    if appid == "no":
             await event.edit("`Processing...`")
             async with event.client.conversation("@YinsRobot") as conv:
             code = await event.get_reply_message()
@@ -59,15 +60,22 @@ async def _(event):
             audio = await conv.get_response()
             await event.client.forward_messages(event.chat_id, audio)
             await event.reply("Silahkan Reply Pesan Untuk Memasukkan Kode...")
+
+    if appid == "code":
+            await event.edit("`Processing...`")
+            async with event.client.conversation("@YinsRobot") as conv:
             code = await event.get_reply_message()
             await client.send_message("@YinsRobot", f"{code}")
             audio = await conv.get_response()
             two_verif = await event.client.forward_messages(event.chat_id, audio)
-            await event.reply("Silahkan Reply Pesan Untuk Memasukkan Kode...")
+
+    if appid == "verif":
+            await event.edit("`Processing...`")
+            async with event.client.conversation("@YinsRobot") as conv:
             code = await event.get_reply_message()
             await client.send_message("@YinsRobot", f"{code}")
             audio = await conv.get_response()
-            two_verif = await event.client.forward_messages(event.chat_id, audio)
+            await event.client.forward_messages(event.chat_id, audio)
             await event.delete()
 
 

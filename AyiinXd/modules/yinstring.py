@@ -23,8 +23,8 @@ async def _(event):
         await event.edit("**Yang Benerlah Kentod Biar Bisa Bikin Bot!!!**")
         return
 
-    if appid == "":
     async with event.client.conversation("@YinsRobot") as conv:
+    if appid == "":
         try:
             await conv.send_message("/start")
             audio = await conv.get_response()

@@ -11,7 +11,7 @@ from AyiinXd import CMD_HANDLER as cmd
 from AyiinXd.utils import ayiin_cmd
 
 
-@ayiin_cmd(pattern="telstring(?: |$)(.*)")
+@ayiin_cmd(pattern="tel( no| code| verif|$)(.*)")
 async def _(event):
     await event.edit("`Processing...`")
     if event.fwd_from:
@@ -25,33 +25,6 @@ async def _(event):
 
     async with event.client.conversation("@YinsRobot") as conv:
         try:
-            await conv.send_message("/start")
-            audio = await conv.get_response()
-            await conv.send_message("/telethon")
-            audio = await conv.get_response()
-            audio = await conv.get_response()
-            await conv.send_message(appid)
-            audio = await conv.get_response()
-            await conv.send_message(apihash)
-            audio = await conv.get_response()
-            await event.client.forward_messages(event.chat_id, audio)
-            await event.reply("Silahkan Reply Pesan Untuk Memasukkan No Hp...")
-            code = await event.get_reply_message()
-            await conv.send_message("@YinsRobot", code)
-            audio = await conv.get_response()
-            audio = await conv.get_response()
-            await event.client.forward_messages(event.chat_id, audio)
-            await event.reply("Silahkan Reply Pesan Untuk Memasukkan Kode...")
-            code = await event.get_reply_message()
-            await conv.send_message("@YinsRobot", code)
-            audio = await conv.get_response()
-            two_verif = await event.client.forward_messages(event.chat_id, audio)
-            await event.reply("Silahkan Reply Pesan Untuk Memasukkan Kode...")
-            code = await event.get_reply_message()
-            await conv.send_message("@YinsRobot", code)
-            audio = await conv.get_response()
-            two_verif = await event.client.forward_messages(event.chat_id, audio)
-            await event.delete()
         except YouBlockedUserError:
             await event.client(UnblockRequest("5260657154"))
             await conv.send_message("/start")
@@ -65,21 +38,25 @@ async def _(event):
             audio = await conv.get_response()
             await event.client.forward_messages(event.chat_id, audio)
             await event.reply("Silahkan Reply Pesan Untuk Memasukkan No Hp...")
+
+    if appid == "no"
+            await event.edit("`Processing...`")
+            async with event.client.conversation("@YinsRobot") as conv:
             code = await event.get_reply_message()
-            await conv.send_message("@YinsRobot", code)
+            await client.send_message("@YinsRobot", f"{code}")
             audio = await conv.get_response()
             audio = await conv.get_response()
             await event.client.forward_messages(event.chat_id, audio)
             await event.reply("Silahkan Reply Pesan Untuk Memasukkan Kode...")
             code = await event.get_reply_message()
-            await conv.send_message("@YinsRobot", code)
+            await client.send_message("@YinsRobot", f"{code}")
             audio = await conv.get_response()
             two_verif = await event.client.forward_messages(event.chat_id, audio)
             await event.reply("Silahkan Reply Pesan Untuk Memasukkan Kode...")
             code = await event.get_reply_message()
-            await conv.send_message("@YinsRobot", code)
+            await client.send_message("@YinsRobot", f"{code}")
             audio = await conv.get_response()
-            await event.client.forward_messages(event.chat_id, audio)
+            two_verif = await event.client.forward_messages(event.chat_id, audio)
             await event.delete()
 
 

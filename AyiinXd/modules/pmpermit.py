@@ -84,7 +84,7 @@ async def permitpm(event):
 
             if COUNT_PM[event.chat_id] > PM_LIMIT:
                 await event.respond(
-                    "**𝙎𝙤𝙧𝙧𝙮 𝙏𝙤𝙙 𝙇𝙪 𝘿𝙞𝙗𝙡𝙤𝙠𝙞𝙧 𝙆𝙖𝙧𝙣𝙖 𝙈𝙚𝙡𝙖𝙠𝙪𝙠𝙖𝙣 𝙎𝙥𝙖𝙢 𝘾𝙝𝙖𝙩**"
+                    "**Bacot lu gue blokir dulu**"
                 )
 
                 try:
